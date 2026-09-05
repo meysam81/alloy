@@ -124,7 +124,8 @@ Short-lived jobs that can't be scraped can push their metrics to it with the Pro
 The following example pushes a metric to a component listening on port `9999`:
 
 ```shell
-echo 'job_last_success_timestamp 1700000000' | curl --data-binary @- http://localhost:9999/metrics/job/demo_batch/instance/worker-1
+echo 'job_last_success_timestamp 1700000000' | \
+  curl --data-binary @- http://localhost:9999/metrics/job/demo_batch/instance/worker-1
 ```
 
 The path following `/metrics/` sets the grouping labels {{< param "PRODUCT_NAME" >}} adds to every series in the request body.
